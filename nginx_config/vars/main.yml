@@ -1,0 +1,4 @@
+#SPDX-License-Identifier: MIT-0
+---
+# vars file for nginx_config
+ansible_become_pass: "1234"

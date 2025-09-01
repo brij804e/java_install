@@ -1,0 +1,8 @@
+---
+- name: download from url
+  hosts: dev_vm
+  gather_facts: yes
+  serial: 1
+  become: yes
+  roles:
+    - nginx_config
