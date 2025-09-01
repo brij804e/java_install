@@ -9,20 +9,20 @@
 
 - name: take backup of files
   ansible.builtin.copy:
-    src: /etc/nginx/sites-available/default
-    dest: /etc/nginx/sites-available/default.backup
+    src: /etc/nginx/nginx.conf
+    dest: /etc/nginx/nginx.conf.backup
     remote_src: yes
 
 - name: config change to run it on 90
   ansible.builtin.lineinfile:
-    path: /etc/nginx/sites-available/default
+    path: /etc/nginx/nginx.conf
     regexp: '^(\s*listen\s+)(80)(\s*default_server:?)'
     line:   'listen 90 default_server;'
     backrefs: yes 
 
 - name: Configure nginx to listen on IPv6 port 90
   lineinfile:
-    path: /etc/nginx/sites-available/default
+    path: /etc/nginx/nginx.conf
     regexp: '^(\s*listen\s+)\[::\]:80(\s*default_server;?)'
     line: '    listen [::]:90 default_server;'
     backrefs: yes
