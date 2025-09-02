@@ -5,4 +5,5 @@
   serial: 1
   become: yes
   roles:
+    - nginx_uninstall
     - nginx_config
