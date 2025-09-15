@@ -1,0 +1,7 @@
+---
+- name: java/nginx/requirment testing
+  hosts: dev_vm
+  become: yes
+  gather_facts: true
+  roles:
+    - java_install
